@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matthew Clements — AI Product Engineer &amp; Solution Architect</title>
+<meta name="description" content="Principal Solution Architect with 14+ years in enterprise telecom and cloud, who designs, builds and ships complete AI products: an App Store app with a vision-grounded AI pipeline, an on-device LLM, and a Stripe Connect marketplace.">
+<meta name="author" content="Matthew Clements">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Matthew Clements — AI Product Engineer &amp; Solution Architect">
+<meta property="og:description" content="14 years of enterprise architecture, plus production AI products shipped end to end.">
+<meta property="og:url" content="https://mcclements02.github.io/">
+<meta property="og:image" content="https://mcclements02.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141413'/%3E%3Ctext x='32' y='42' font-family='Helvetica,Arial,sans-serif' font-size='28' font-weight='700' fill='%23ff7b42' text-anchor='middle'%3EMC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js');
+  try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<style>
+  :root {
+    --bg: #f6f5f1;
+    --bg-2: #efede6;
+    --surface: #ffffff;
+    --ink: #141413;
+    --ink-2: #47463f;
+    --ink-3: #7a786f;
+    --rule: #e2dfd6;
+    --rule-2: #d3d0c5;
+    --accent: #c2410c;
+    --accent-ink: #ffffff;
+    --accent-soft: #fbe8dc;
+    --live: #15803d;
+    --live-soft: #dcf2e3;
+    --build: #a16207;
+    --build-soft: #f8edd0;
+    --muted-bar: #cfcbbf;
+    --shadow: 0 1px 2px rgba(20,20,19,.04), 0 12px 32px -12px rgba(20,20,19,.14);
+    --shadow-lg: 0 2px 4px rgba(20,20,19,.04), 0 28px 60px -20px rgba(20,20,19,.28);
+    --dot: rgba(20,20,19,.09);
+    --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --serif: "Instrument Serif", Georgia, serif;
+    --wrap: 1140px;
+    --gutter: 32px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f0f0e;
+      --bg-2: #151513;
+      --surface: #1a1a18;
+      --ink: #edece7;
+      --ink-2: #bdbbb2;
+      --ink-3: #8a887f;
+      --rule: #2a2926;
+      --rule-2: #3a3935;
+      --accent: #ff7b42;
+      --accent-ink: #1a0d05;
+      --accent-soft: #2e1a0e;
+      --live: #4ade80;
+      --live-soft: #12301c;
+      --build: #facc15;
+      --build-soft: #2e2708;
+      --muted-bar: #44433e;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -12px rgba(0,0,0,.6);
+      --shadow-lg: 0 2px 4px rgba(0,0,0,.3), 0 28px 60px -20px rgba(0,0,0,.8);
+      --dot: rgba(237,236,231,.07);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f0f0e;
+    --bg-2: #151513;
+    --surface: #1a1a18;
+    --ink: #edece7;
+    --ink-2: #bdbbb2;
+    --ink-3: #8a887f;
+    --rule: #2a2926;
+    --rule-2: #3a3935;
+    --accent: #ff7b42;
+    --accent-ink: #1a0d05;
+    --accent-soft: #2e1a0e;
+    --live: #4ade80;
+    --live-soft: #12301c;
+    --build: #facc15;
+    --build-soft: #2e2708;
+    --muted-bar: #44433e;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -12px rgba(0,0,0,.6);
+    --shadow-lg: 0 2px 4px rgba(0,0,0,.3), 0 28px 60px -20px rgba(0,0,0,.8);
+    --dot: rgba(237,236,231,.07);
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; }
+  p { margin: 0; }
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+
+  .wrap { width: 100%; max-width: calc(var(--wrap) + var(--gutter) * 2); margin: 0 auto; padding: 0 var(--gutter); }
+  .mono { font-family: var(--mono); }
+  .eyebrow {
+    font: 500 12px/1.4 var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ""; width: 18px; height: 1px; background: currentColor; opacity: .6; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(1.4) blur(14px);
+    -webkit-backdrop-filter: saturate(1.4) blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .nav.scrolled { border-bottom-color: var(--rule); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }
+  .mark {
+    display: grid; place-items: center;
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--ink); color: var(--bg);
+    font: 600 12px/1 var(--mono); letter-spacing: .02em;
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { text-decoration: none; font-size: 15px; color: var(--ink-2); transition: color .15s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .icon-btn {
+    width: 36px; height: 36px; border-radius: 10px;
+    display: grid; place-items: center;
+    background: transparent; border: 1px solid var(--rule); color: var(--ink-2);
+    cursor: pointer; transition: border-color .15s, color .15s;
+  }
+  .icon-btn:hover { border-color: var(--rule-2); color: var(--ink); }
+  .icon-btn svg { width: 17px; height: 17px; }
+  .theme-sun { display: none; }
+  :root[data-theme="dark"] .theme-sun { display: block; }
+  :root[data-theme="dark"] .theme-moon { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-sun { display: block; }
+    :root:not([data-theme="light"]) .theme-moon { display: none; }
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 46px; padding: 0 20px; border-radius: 12px;
+    font: 500 15px/1 var(--sans); text-decoration: none; white-space: nowrap;
+    border: 1px solid var(--rule-2); background: var(--surface); color: var(--ink);
+    transition: transform .15s, border-color .15s, background .15s;
+  }
+  .btn:hover { border-color: var(--ink-3); transform: translateY(-1px); }
+  .btn-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .btn-primary:hover { border-color: var(--ink); background: color-mix(in srgb, var(--ink) 88%, var(--accent)); }
+  .btn-sm { height: 36px; padding: 0 14px; font-size: 14px; border-radius: 10px; }
+  .btn svg { width: 16px; height: 16px; flex: none; }
+  .arrow { font-family: var(--mono); font-size: .9em; transition: transform .15s; }
+  a:hover > .arrow { transform: translate(2px, -2px); }
+
+  /* ---------- Hero ---------- */
+  .hero-bg { position: relative; overflow: hidden; }
+  .hero-bg::before {
+    content: ""; position: absolute; inset: -40px 0 0 0;
+    background-image: radial-gradient(var(--dot) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 30%, #000 30%, transparent 75%);
+            mask-image: radial-gradient(ellipse 70% 60% at 70% 30%, #000 30%, transparent 75%);
+    pointer-events: none;
+  }
+  .hero {
+    position: relative;
+    display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 64px; align-items: center;
+    padding-top: 88px; padding-bottom: 72px;
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 5.6vw, 4.5rem);
+    line-height: 1.02; letter-spacing: -0.04em;
+    margin: 22px 0 26px;
+    text-wrap: balance;
+  }
+  .hero h1 em, .serif-em {
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    color: var(--accent); letter-spacing: -0.01em;
+    font-size: 1.1em; line-height: .9;
+  }
+  .lede { font-size: clamp(1.05rem, 1.5vw, 1.2rem); line-height: 1.6; color: var(--ink-2); max-width: 36em; text-wrap: pretty; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
+  .loc { margin-top: 22px; font: 400 13px/1.5 var(--mono); color: var(--ink-3); display: flex; align-items: center; gap: 8px; }
+  .loc .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--live); box-shadow: 0 0 0 3px var(--live-soft); flex: none; }
+
+  /* status board */
+  .board {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    font: 400 13px/1.4 var(--mono);
+    overflow: hidden;
+  }
+  .board-head {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-bottom: 1px solid var(--rule);
+    color: var(--ink-3); background: var(--bg-2);
+  }
+  .dots { display: flex; gap: 6px; }
+  .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--rule-2); }
+  .board-head .board-time { margin-left: auto; }
+  .board ul { padding: 6px 0; }
+  .board li a {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center;
+    gap: 4px 12px; padding: 10px 16px; text-decoration: none;
+    transition: background .15s;
+  }
+  .board li a:hover { background: var(--bg-2); }
+  .b-name { color: var(--ink); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .b-where { grid-column: 1; color: var(--ink-3); font-size: 12px; }
+  .board li .pill { grid-row: 1 / span 2; grid-column: 2; }
+  .board-foot {
+    padding: 12px 16px; border-top: 1px solid var(--rule);
+    color: var(--ink-3); font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+  .board-foot b { color: var(--ink); font-weight: 500; }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font: 500 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase;
+    padding: 6px 9px; border-radius: 999px; white-space: nowrap;
+    color: var(--ink-2); background: var(--bg-2); border: 1px solid var(--rule);
+  }
+  .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .85; }
+  .pill.live { color: var(--live); background: var(--live-soft); border-color: transparent; }
+  .pill.use { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+  .pill.build { color: var(--build); background: var(--build-soft); border-color: transparent; }
+  .pill.live::before { animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 45%, transparent); } 50% { box-shadow: 0 0 0 4px transparent; } }
+
+  /* ---------- Stats ---------- */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  }
+  .stat { padding: 30px 24px 30px 0; }
+  .stat + .stat { padding-left: 24px; border-left: 1px solid var(--rule); }
+  .stat b { display: block; font-size: clamp(2rem, 3.4vw, 2.75rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .stat span { display: block; margin-top: 10px; font-size: 14px; line-height: 1.45; color: var(--ink-3); max-width: 22ch; }
+
+  /* ---------- Sections ---------- */
+  section.block { padding: 120px 0 0; }
+  .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px 64px; align-items: end; margin-bottom: 64px; }
+  .section-head h2 { font-size: clamp(2rem, 4vw, 3.1rem); letter-spacing: -0.035em; margin-top: 16px; text-wrap: balance; }
+  .section-head p { color: var(--ink-2); max-width: 34em; text-wrap: pretty; }
+
+  /* ---------- Case studies ---------- */
+  .case { padding: 56px 0; border-top: 1px solid var(--rule); }
+  .case:first-of-type { border-top: 0; padding-top: 0; }
+  .case-head { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 0 8px; margin-bottom: 40px; }
+  .case-num { font: 500 14px/1 var(--mono); color: var(--accent); padding-top: 8px; }
+  .case-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; font-weight: 600; font-size: 15px; color: var(--ink-2); }
+  .case h3 { font-size: clamp(1.75rem, 3.2vw, 2.6rem); letter-spacing: -0.035em; margin-top: 14px; max-width: 22em; text-wrap: balance; }
+  .case-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 56px; margin-left: 80px; }
+  .case-text > * + * { margin-top: 28px; }
+  .case-text .intro { font-size: 18px; color: var(--ink-2); text-wrap: pretty; }
+  .case-media { position: sticky; top: 96px; align-self: start; }
+
+  .pipeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; counter-reset: step; }
+  .pipeline li {
+    position: relative; padding: 18px 18px 20px;
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 14px;
+  }
+  .pipeline li:last-child { border-color: color-mix(in srgb, var(--accent) 45%, var(--rule)); background: color-mix(in srgb, var(--accent-soft) 55%, var(--surface)); }
+  .pipeline li + li::before {
+    content: "→"; position: absolute; left: -10px; top: 20px; transform: translateX(-50%);
+    font: 500 13px/1 var(--mono); color: var(--ink-3); background: var(--bg); padding: 2px 0;
+  }
+  .step-n { font: 500 11px/1 var(--mono); color: var(--ink-3); letter-spacing: .08em; text-transform: uppercase; }
+  .pipeline b { display: block; margin: 10px 0 8px; font-size: 16px; letter-spacing: -0.01em; }
+  .pipeline p { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+
+  .points-title { font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+  .points { display: grid; gap: 0; margin-top: 12px !important; }
+  .points li { padding: 14px 0; border-top: 1px solid var(--rule); font-size: 15.5px; line-height: 1.55; color: var(--ink-2); }
+  .points li:last-child { border-bottom: 1px solid var(--rule); }
+  .points li b { color: var(--ink); font-weight: 600; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips li { font: 400 12.5px/1 var(--mono); padding: 7px 10px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--rule); color: var(--ink-2); }
+  .case-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 4px; }
+  .meta { font: 400 13px/1.5 var(--mono); color: var(--ink-3); }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    padding: 8px 12px; border-radius: 10px; border: 1px solid var(--rule-2); background: var(--surface);
+    transition: border-color .15s;
+  }
+  .link:hover { border-color: var(--ink-3); }
+  .note { font-size: 14px; color: var(--ink-3); padding: 14px 16px; border-radius: 12px; border: 1px dashed var(--rule-2); }
+  .note b { color: var(--ink-2); font-weight: 600; }
+
+  .phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+  .phones.two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 0 6%; }
+  .phones img {
+    width: 100%; height: auto; aspect-ratio: 560 / 1212;
+    border-radius: 18px; box-shadow: var(--shadow-lg);
+    border: 1px solid var(--rule);
+    background: var(--bg-2);
+  }
+  .phones img:nth-child(2) { margin-top: 36px; }
+  .phones.two img:nth-child(2) { margin-top: 48px; }
+  .caption { margin-top: 18px; font: 400 12.5px/1.5 var(--mono); color: var(--ink-3); text-align: center; }
+
+  .metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .metric { padding: 18px; border-radius: 14px; background: var(--surface); border: 1px solid var(--rule); }
+  .metric b { display: block; font-size: 1.7rem; letter-spacing: -0.035em; line-height: 1.05; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .metric b .to { color: var(--ink-3); font-weight: 400; margin: 0 .15em; }
+  .metric b .hl { color: var(--accent); }
+  .metric span { display: block; margin-top: 8px; font-size: 13.5px; line-height: 1.45; color: var(--ink-3); }
+
+  /* chart */
+  .chart { margin: 0; padding: 24px; background: var(--surface); border: 1px solid var(--rule); border-radius: 16px; box-shadow: var(--shadow); }
+  .chart-title { font-weight: 600; font-size: 16px; letter-spacing: -0.01em; }
+  .chart-sub { font-size: 13.5px; color: var(--ink-3); margin-top: 4px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 18px 0 6px; font-size: 12.5px; color: var(--ink-2); }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .sw-before { background: var(--muted-bar); }
+  .sw-after { background: var(--accent); }
+  .bar-group { padding: 16px 0 6px; }
+  .bar-group + .bar-group { border-top: 1px solid var(--rule); }
+  .bar-label { font: 500 12.5px/1 var(--mono); color: var(--ink-2); margin-bottom: 10px; display: block; }
+  .bar-row { display: grid; grid-template-columns: minmax(0, 1fr) 54px; align-items: center; gap: 10px; height: 26px; }
+  .bar-track { height: 18px; position: relative; }
+  .bar { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 0 4px 4px 0; min-width: 4px; width: calc(var(--v) * 100%); transform-origin: left; }
+  .bar.before { background: var(--muted-bar); }
+  .bar.after { background: var(--accent); }
+  .bar-val { font: 500 13px/1 var(--mono); text-align: right; font-variant-numeric: tabular-nums; }
+  .bar-val.after { color: var(--accent); }
+  .chart-note { margin-top: 14px; font-size: 12.5px; line-height: 1.5; color: var(--ink-3); }
+  .js .chart .bar { transform: scaleX(0); transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+  .js .chart.in .bar { transform: scaleX(1); }
+  .js .chart.in .bar-row:nth-child(3) .bar { transition-delay: .25s; }
+
+  /* architecture diagram */
+  .arch { display: grid; gap: 10px; }
+  .arch-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .node { padding: 14px; border-radius: 12px; background: var(--surface); border: 1px solid var(--rule); }
+  .node b { display: block; font-size: 14.5px; letter-spacing: -0.01em; }
+  .node span { display: block; margin-top: 4px; font: 400 12px/1.4 var(--mono); color: var(--ink-3); }
+  .node.core { border-color: color-mix(in srgb, var(--accent) 45%, var(--rule)); background: color-mix(in srgb, var(--accent-soft) 55%, var(--surface)); }
+  .mw { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; }
+  .mw code { font: 500 11.5px/1 var(--mono); padding: 6px 8px; border-radius: 6px; background: var(--surface); border: 1px solid var(--rule-2); color: var(--ink-2); }
+  .mw i { font-style: normal; color: var(--ink-3); font: 400 12px/1 var(--mono); }
+  .arch-link { display: flex; justify-content: center; color: var(--ink-3); font: 400 12px/1 var(--mono); gap: 8px; align-items: center; }
+  .arch-link::before, .arch-link::after { content: ""; height: 1px; width: 28px; background: var(--rule-2); }
+
+  /* ---------- More work grid ---------- */
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .card {
+    display: flex; flex-direction: column;
+    padding: 24px; border-radius: 18px;
+    background: var(--surface); border: 1px solid var(--rule);
+    transition: border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .card:hover { border-color: var(--rule-2); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .card-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .lang { font: 500 12px/1 var(--mono); color: var(--ink-3); }
+  .card h4 { font-size: 21px; letter-spacing: -0.025em; margin-top: 22px; }
+  .card-sub { font-size: 14px; color: var(--accent); margin-top: 6px; font-weight: 500; }
+  .card-desc { margin-top: 14px; font-size: 15px; line-height: 1.55; color: var(--ink-2); text-wrap: pretty; }
+  .card-points { margin-top: 16px; display: grid; gap: 8px; }
+  .card-points li { position: relative; padding-left: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+  .card-points li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 1px; background: var(--ink-3); }
+  .card-foot { margin-top: auto; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .card-foot .meta { font-size: 12px; }
+  .card-foot a { font-size: 14px; font-weight: 500; text-decoration: none; color: var(--accent); display: inline-flex; gap: 4px; }
+  .card-foot a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---------- Approach ---------- */
+  .principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+  .principle { padding: 36px 40px 40px 0; border-bottom: 1px solid var(--rule); }
+  .principle:nth-child(even) { padding-left: 40px; padding-right: 0; border-left: 1px solid var(--rule); }
+  .principle .n { font: 500 13px/1 var(--mono); color: var(--accent); }
+  .principle h3 { font-size: 24px; letter-spacing: -0.03em; margin: 16px 0 12px; }
+  .principle p { color: var(--ink-2); font-size: 16px; text-wrap: pretty; }
+
+  /* ---------- Experience ---------- */
+  .exp { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 72px; }
+  .timeline li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; padding: 26px 0; border-top: 1px solid var(--rule); }
+  .timeline li:last-child { border-bottom: 1px solid var(--rule); }
+  .t-when { font: 400 13px/1.6 var(--mono); color: var(--ink-3); padding-top: 2px; }
+  .t-what h3 { font-size: 18px; letter-spacing: -0.02em; line-height: 1.3; }
+  .t-what h3 span { color: var(--ink-3); font-weight: 400; }
+  .t-what p { margin-top: 8px; font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+  .t-what ul { margin-top: 10px; display: grid; gap: 6px; }
+  .t-what ul li { all: unset; display: block; position: relative; padding-left: 16px; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+  .t-what ul li::before { content: ""; position: absolute; left: 0; top: .7em; width: 6px; height: 1px; background: var(--ink-3); }
+  .t-what.featured h3 { color: var(--ink); }
+  .edu { margin-top: 28px; font-size: 14px; color: var(--ink-3); }
+  .edu b { color: var(--ink-2); font-weight: 500; }
+
+  .skills { position: sticky; top: 96px; align-self: start; display: grid; gap: 22px; }
+  .skills h3 { font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+  .skill-group { padding-top: 22px; border-top: 1px solid var(--rule); }
+  .skill-group:first-of-type { padding-top: 0; border-top: 0; }
+  .skill-group h4 { font-size: 15px; letter-spacing: -0.01em; margin-bottom: 10px; }
+  .callout {
+    padding: 24px; border-radius: 16px; background: var(--ink); color: var(--bg);
+  }
+  .callout p { font-size: 15.5px; line-height: 1.6; color: color-mix(in srgb, var(--bg) 82%, var(--ink)); }
+  .callout p strong { color: var(--bg); font-weight: 600; }
+
+  /* ---------- Contact ---------- */
+  .contact { padding: 140px 0 120px; }
+  .contact-card {
+    position: relative; overflow: hidden;
+    padding: 72px 64px; border-radius: 28px;
+    background: var(--surface); border: 1px solid var(--rule);
+    box-shadow: var(--shadow);
+  }
+  .contact-card::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: radial-gradient(var(--dot) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 80% at 100% 100%, #000 20%, transparent 70%);
+            mask-image: radial-gradient(ellipse 60% 80% at 100% 100%, #000 20%, transparent 70%);
+    pointer-events: none;
+  }
+  .contact-card > * { position: relative; }
+  .contact h2 { font-size: clamp(2.4rem, 5.4vw, 4.2rem); letter-spacing: -0.045em; line-height: 1.02; margin: 20px 0 22px; max-width: 14em; text-wrap: balance; }
+  .contact p.lede { max-width: 38em; }
+  .contact .cta-row { margin-top: 36px; }
+  .contact .fine { margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--ink-3); max-width: 46em; }
+
+  footer { border-top: 1px solid var(--rule); }
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 28px; padding-bottom: 40px; font: 400 13px/1.5 var(--mono); color: var(--ink-3); }
+  .foot a { text-decoration: none; }
+  .foot a:hover { color: var(--ink); }
+
+  /* ---------- Reveal ---------- */
+  .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+  .js .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js .reveal { opacity: 1; transform: none; }
+    .js .chart .bar { transform: none; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1020px) {
+    .hero { grid-template-columns: minmax(0, 1fr); gap: 48px; padding-top: 64px; }
+    .board { max-width: 560px; }
+    .case-grid { grid-template-columns: minmax(0, 1fr); margin-left: 0; gap: 44px; }
+    .case-media { position: static; max-width: 560px; }
+    .case-head { grid-template-columns: minmax(0, 1fr); }
+    .case-num { padding: 0 0 14px; }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .exp { grid-template-columns: minmax(0, 1fr); gap: 56px; }
+    .skills { position: static; }
+  }
+  @media (max-width: 760px) {
+    :root { --gutter: 16px; }
+    body { font-size: 16px; }
+    .nav-links { display: none; }
+    .hero { padding-top: 44px; padding-bottom: 52px; }
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stat, .stat + .stat { padding: 22px 16px 22px 0; border-left: 0; }
+    .stat:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--rule); }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--rule); }
+    section.block { padding-top: 88px; }
+    .section-head { grid-template-columns: minmax(0, 1fr); margin-bottom: 40px; gap: 16px; }
+    .case { padding: 44px 0; }
+    .pipeline { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+    .pipeline li + li::before { content: "↓"; left: 24px; top: -18px; transform: none; background: transparent; }
+    .metrics { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .metric b { font-size: 1.35rem; }
+    .arch-row { gap: 6px; }
+    .arch .node { padding: 10px; }
+    .arch .node b { font-size: 13px; }
+    .arch .node span { font-size: 11px; }
+    .grid { grid-template-columns: minmax(0, 1fr); }
+    .principles { grid-template-columns: minmax(0, 1fr); }
+    .principle, .principle:nth-child(even) { padding: 28px 0 32px; border-left: 0; }
+    .timeline li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+    .contact { padding: 96px 0 80px; }
+    .contact-card { padding: 44px 22px; border-radius: 22px; }
+    .btn { height: 44px; padding: 0 16px; }
+    .chart { padding: 18px; }
+  }
+  @media (max-width: 400px) {
+    .metrics { grid-template-columns: minmax(0, 1fr); }
+    .brand-name { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Matthew Clements — back to top"><span class="mark">MC</span><span class="brand-name">Matthew Clements</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#more">Projects</a>
+      <a href="#approach">Approach</a>
+      <a href="#experience">Experience</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn-sm btn-primary" href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <div class="hero-bg">
+    <section class="wrap hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Principal Solution Architect · AI Product Engineer</p>
+        <h1>I turn enterprise problems into <em>shipped</em> software.</h1>
+        <p class="lede">Fourteen years architecting national-scale telecom and cloud systems at AT&amp;T, Oracle and IBM. Alongside that, I design, build and ship complete AI products myself: an App Store app whose AI scores are grounded in on-device measurement, an LLM that runs entirely on a phone, and a marketplace that moves real money through Stripe Connect.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:matthew.clements02@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            Email me
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/matthew-c-clements" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn" href="https://github.com/mcclements02" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg>
+            GitHub
+          </a>
+        </div>
+        <p class="loc"><span class="live-dot" aria-hidden="true"></span>Seattle area (Bothell, WA) · open to relocation &amp; remote</p>
+      </div>
+
+      <aside class="board reveal" aria-label="Project status board">
+        <div class="board-head"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>~/work — status</span><span class="board-time">Oct 2026</span></div>
+        <ul>
+          <li><a href="#sango"><span class="b-name">sango-sports-lab</span><span class="pill live">Live</span><span class="b-where">iOS · App Store</span></a></li>
+          <li><a href="#scks"><span class="b-name">scks-marketplace</span><span class="pill live">Production</span><span class="b-where">Flutter · Stripe Connect</span></a></li>
+          <li><a href="#launchdit"><span class="b-name">launchdit</span><span class="pill live">Live</span><span class="b-where">launchdit.com</span></a></li>
+          <li><a href="#offearth"><span class="b-name">offearth</span><span class="pill use">Daily use</span><span class="b-where">on-device LLM · iOS &amp; macOS</span></a></li>
+          <li><a href="#xentrix"><span class="b-name">xentrix</span><span class="pill">Paper-first</span><span class="b-where">quant options agent · Python</span></a></li>
+          <li><a href="#sprawl"><span class="b-name">connected-sprawl</span><span class="pill build">Building</span><span class="b-where">open world · Unreal Engine 5</span></a></li>
+          <li><a href="#cairn"><span class="b-name">cairn</span><span class="pill">Open source</span><span class="b-where">multi-agent coding protocol</span></a></li>
+        </ul>
+        <div class="board-foot"><span><b>2,000+</b> commits in 2026</span><span><b>~720K</b> lines · 14 repos</span></div>
+      </aside>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="stats reveal" aria-label="At a glance">
+      <div class="stat"><b>14+</b><span>years of enterprise architecture at AT&amp;T, Oracle and IBM</span></div>
+      <div class="stat"><b>2,000+</b><span>commits shipped in 2026 across 14 repositories</span></div>
+      <div class="stat"><b>~720K</b><span>lines of source across iOS, web, backend and games</span></div>
+      <div class="stat"><b>3</b><span>products in production: App Store, web and live payments</span></div>
+    </section>
+  </div>
+
+  <!-- ================= SELECTED WORK ================= -->
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2>Three production systems, <span class="serif-em">end to end.</span></h2>
+        </div>
+        <p>Product design, code, CI, payments, security rules and deployment. For each of these I'm the architect, the engineer and the person on call.</p>
+      </div>
+
+      <!-- 01 Sango -->
+      <article class="case" id="sango">
+        <div class="case-head reveal">
+          <span class="case-num">01</span>
+          <div>
+            <p class="case-kicker">Sango Sports Lab <span class="pill live">Live on the App Store</span></p>
+            <h3>An AI coach that isn't trusted with the measurement.</h3>
+          </div>
+        </div>
+        <div class="case-grid">
+          <div class="case-text">
+            <p class="intro reveal">Record a phone clip of an athlete's rep (a jump, a sprint, a swing) and get a graded performance report with drills to fix what it found. The hard part: a language model will happily call a squat “excellent” with no idea how deep it was. So the pipeline is built so the model supplies judgment and language, and the geometry supplies the truth.</p>
+
+            <ol class="pipeline reveal" aria-label="Scoring pipeline">
+              <li><span class="step-n">Step 1</span><b>The phone measures</b><p>Apple Vision extracts a 17-joint pose and the ball trajectory on-device. A kinematic extractor turns that into joint angles, rep windows and tempo.</p></li>
+              <li><span class="step-n">Step 2</span><b>The cloud interprets</b><p>Gemini receives the clip and the measured features, then grades six performance metrics.</p></li>
+              <li><span class="step-n">Step 3</span><b>The measurement wins</b><p>Model scores are clamped to within ±3 of the on-device engine, so results stay reproducible and explainable.</p></li>
+            </ol>
+
+            <div class="reveal">
+              <p class="points-title">Engineering worth a look</p>
+              <ul class="points">
+                <li><b>Shadow evaluation.</b> A TypeScript shadow engine and a 2D-vs-3D pose comparator run beside production and log drift, with no way to change a user's score.</li>
+                <li><b>Dark launches.</b> Every ML component is tagged live, dark or dormant. Gated features turn on through Remote Config without an app release.</li>
+                <li><b>One entitlement, two stores.</b> Apple IAP (server-side JWS verification) and Stripe resolve into one billing state. A web subscription unlocks iOS, and removed team seats are revoked cleanly.</li>
+                <li><b>Models named by role.</b> <span class="mono">scoring-current</span> and <span class="mono">text-current</span> are aliases in one config file, so moving the whole product to a new model is a one-file change.</li>
+                <li><b>Rules tested, not assumed.</b> Firestore and Storage rules run against the emulator suite. App Check protects the clients, and every credential lives in Secret Manager.</li>
+              </ul>
+            </div>
+
+            <ul class="chips reveal" aria-label="Stack">
+              <li>SwiftUI</li><li>Apple Vision</li><li>Core ML</li><li>Firebase</li><li>Cloud Functions · TS</li><li>Gemini</li><li>React + Vite</li><li>Python · YOLO · Cloud Run</li><li>StoreKit</li><li>Stripe</li>
+            </ul>
+
+            <div class="case-foot reveal">
+              <p class="meta">~142K lines · 830 commits since Feb 2026<br>iOS app · web app · 27 cloud functions · tracking service</p>
+              <div class="links">
+                <a class="link" href="https://apps.apple.com/us/app/sango-sports-lab/id6760807570" target="_blank" rel="noopener">App Store <span class="arrow">↗</span></a>
+                <a class="link" href="https://sangosportslab.com" target="_blank" rel="noopener">sangosportslab.com <span class="arrow">↗</span></a>
+              </div>
+            </div>
+          </div>
+
+          <figure class="case-media reveal" style="margin:0">
+            <div class="phones">
+              <img src="assets/sango-report.webp" width="560" height="1212" loading="lazy" alt="Sango performance analysis screen showing highlights from a soccer session">
+              <img src="assets/sango-runway.webp" width="560" height="1212" loading="lazy" alt="Sango development track screen with an overall score of 77, Varsity tier">
+              <img src="assets/sango-metrics.webp" width="560" height="1212" loading="lazy" alt="Sango radar chart of six movement metrics: form, control, power, recovery, agility and balance">
+            </div>
+            <figcaption class="caption">Performance report · development runway · six-metric breakdown</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 02 offEarth -->
+      <article class="case" id="offearth">
+        <div class="case-head reveal">
+          <span class="case-num">02</span>
+          <div>
+            <p class="case-kicker">offEarth <span class="pill use">In daily use · iOS &amp; macOS</span></p>
+            <h3>A large language model that runs entirely on a phone.</h3>
+          </div>
+        </div>
+        <div class="case-grid">
+          <div class="case-text">
+            <p class="intro reveal">No account, no server, and it works in airplane mode. Conversations never leave the device. A cloud app can throw hardware at a problem. On a phone you live inside a fixed memory ceiling, a thermal budget and a battery, and every design decision trades off between those three.</p>
+
+            <div class="metrics reveal">
+              <div class="metric"><b class="hl">0.03s</b><span>time to first token on a follow-up turn, down from 0.56s, by reusing the KV cache</span></div>
+              <div class="metric"><b>8K</b><span>token context on a phone. Flash attention with a q8_0 KV cache halves KV memory.</span></div>
+              <div class="metric"><b>2,870</b><span>automated tests across iOS and macOS, zero failures</span></div>
+              <div class="metric"><b>0</b><span>servers that can read your data. Sync is end-to-end encrypted.</span></div>
+            </div>
+
+            <div class="reveal">
+              <p class="points-title">Engineering worth a look</p>
+              <ul class="points">
+                <li><b>Surviving jetsam.</b> iOS kills apps that exceed their memory allowance, without warning. A resource governor sizes the context window from the device's RAM tier, the per-process ceiling and each model's real weights, read from its GGUF header. KV cost per token varies 4.6× across the 20-model catalog.</li>
+                <li><b>Not cooking the phone.</b> A PI controller paces prefill against a thermal setpoint. It runs at full speed while there's headroom and eases off before iOS throttles the CPU.</li>
+                <li><b>Sync with no trusted server.</b> Devices pair by QR code with X25519 key agreement, HKDF subkeys and ChaCha20-Poly1305. Conversation state is a CRDT ordered by hybrid logical clocks. Devices talk over Multipeer on the same network and through a stateless zero-knowledge relay otherwise.</li>
+                <li><b>Ahead of upstream.</b> I vendored and re-pinned the llama.cpp Swift wrapper to support new model architectures, and fixed a recurrent-state reset that crashed the next decode on Qwen 3.5's linear-attention layers.</li>
+                <li><b>Phone → Mac dispatch.</b> You can send a coding task to an agent on your Mac. It is scoped to one authorized folder through a shadow git directory that writes nothing into that folder.</li>
+              </ul>
+            </div>
+
+            <p class="note reveal"><b>Honest status:</b> not on the App Store yet, because content filtering and an age rating for AI chat are still outstanding. Android is a tested core port, not a shipping app.</p>
+
+            <ul class="chips reveal" aria-label="Stack">
+              <li>Swift</li><li>SwiftUI</li><li>llama.cpp</li><li>GGUF</li><li>Apple Foundation Models</li><li>CryptoKit</li><li>CRDTs</li><li>Multipeer</li><li>XcodeGen</li><li>StoreKit 2</li>
+            </ul>
+
+            <div class="case-foot reveal">
+              <p class="meta">~62K lines of Swift · 24K lines of tests<br>174 commits since Jun 2026</p>
+            </div>
+          </div>
+
+          <figure class="case-media chart reveal">
+            <p class="chart-title">Time to first token, follow-up turn</p>
+            <p class="chart-sub">Seconds before the reply starts streaming</p>
+            <div class="legend" aria-hidden="true">
+              <span><i class="sw-before"></i>Re-process whole conversation</span>
+              <span><i class="sw-after"></i>Reuse KV cache, decode only the new suffix</span>
+            </div>
+            <div class="bar-group" role="img" aria-label="Qwen 0.8B: 0.56 seconds before, 0.03 seconds after">
+              <span class="bar-label">Qwen 0.8B</span>
+              <div class="bar-row"><div class="bar-track"><span class="bar before" style="--v:.2074"></span></div><span class="bar-val">0.56s</span></div>
+              <div class="bar-row"><div class="bar-track"><span class="bar after" style="--v:.0111"></span></div><span class="bar-val after">0.03s</span></div>
+            </div>
+            <div class="bar-group" role="img" aria-label="Gemma E2B: about 2.7 seconds before, 0.07 seconds after">
+              <span class="bar-label">Gemma E2B</span>
+              <div class="bar-row"><div class="bar-track"><span class="bar before" style="--v:1"></span></div><span class="bar-val">~2.7s</span></div>
+              <div class="bar-row"><div class="bar-track"><span class="bar after" style="--v:.0259"></span></div><span class="bar-val after">0.07s</span></div>
+            </div>
+            <figcaption class="chart-note">Measured on an M-series Mac. Phone prefill is 5–10× slower, so on device this is the difference between a multi-second freeze and an instant reply.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 03 SCKS -->
+      <article class="case" id="scks">
+        <div class="case-head reveal">
+          <span class="case-num">03</span>
+          <div>
+            <p class="case-kicker">SCKS: on-demand laundry marketplace <span class="pill live">Production · live payments</span></p>
+            <h3>A two-sided marketplace with real money moving through it.</h3>
+          </div>
+        </div>
+        <div class="case-grid">
+          <div class="case-text">
+            <p class="intro reveal">Laundry pickup and delivery with a customer app, a driver app for “Socksters”, an operations portal and a payments API. The project began with a contract team. I now own the platform end to end: the payments API, security, both mobile apps and the admin portal.</p>
+
+            <div class="arch reveal" role="img" aria-label="Architecture: customer app, driver app and admin portal call a payments API on Cloud Functions, which runs auth, Stripe mode and ownership middleware before reaching Stripe Connect, Firestore and scheduled jobs.">
+              <div class="arch-row">
+                <div class="node"><b>Customer app</b><span>Flutter</span></div>
+                <div class="node"><b>Sockster app</b><span>Flutter</span></div>
+                <div class="node"><b>Admin portal</b><span>React</span></div>
+              </div>
+              <div class="arch-link">HTTPS</div>
+              <div class="node core">
+                <b>Payments API</b><span>Express on Cloud Functions · Node 22 · OpenAPI</span>
+                <div class="mw"><code>auth</code><i>→</i><code>stripe mode</code><i>→</i><code>ownership</code><i>→</i><code>handler</code></div>
+              </div>
+              <div class="arch-link">writes &amp; schedules</div>
+              <div class="arch-row">
+                <div class="node"><b>Stripe Connect</b><span>onboarding · payouts · webhooks</span></div>
+                <div class="node"><b>Firestore</b><span>shared order contract</span></div>
+                <div class="node"><b>Scheduled jobs</b><span>fund release · order sweeper</span></div>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <p class="points-title">Engineering worth a look</p>
+              <ul class="points">
+                <li><b>Stripe Connect payouts.</b> Driver onboarding, customer-triggered transfers into a pending balance, and scheduled fund release after the hold window.</li>
+                <li><b>Live and test mode per request.</b> A Stripe client factory picks the mode for each request, so QA can run on production infrastructure without moving real money.</li>
+                <li><b>Ownership scoping.</b> Middleware ties every money and customer endpoint to the caller's uid.</li>
+                <li><b>Self-healing orders.</b> A scheduled sweeper finds orphaned orders and refunds them to the original card.</li>
+                <li><b>Adversarial audits.</b> I ran a 14-dimension security audit across all four repos. It drove fixes including Firestore rule field-locks, idempotent refunds and payout caps.</li>
+              </ul>
+            </div>
+
+            <ul class="chips reveal" aria-label="Stack">
+              <li>Flutter</li><li>Dart</li><li>React</li><li>Node 22</li><li>Express</li><li>Cloud Functions</li><li>Firestore</li><li>Stripe Connect</li><li>OpenAPI</li>
+            </ul>
+
+            <div class="case-foot reveal">
+              <p class="meta">~126K lines across 4 repositories<br>customer app · driver app · admin · API</p>
+            </div>
+          </div>
+
+          <figure class="case-media reveal" style="margin:0">
+            <div class="phones two">
+              <img src="assets/scks-customer.webp" width="560" height="1212" loading="lazy" alt="Socks customer app home screen with a single tap-to-order button">
+              <img src="assets/scks-driver.webp" width="560" height="1212" loading="lazy" alt="Sockster driver app home screen showing wallet, orders and an online toggle">
+            </div>
+            <figcaption class="caption">Customer app · Sockster (driver) app</figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= MORE WORK ================= -->
+  <section class="block" id="more">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">More projects</p>
+          <h2>SaaS, quant systems, developer tools <span class="serif-em">&amp; games.</span></h2>
+        </div>
+        <p>Range matters for forward-deployed work: you learn a customer's stack fast when you've already shipped in a dozen.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card reveal" id="xentrix">
+          <div class="card-top"><span class="lang">Python</span><span class="pill">Paper-first</span></div>
+          <h4>Xentrix</h4>
+          <p class="card-sub">Quantitative options-trading agent</p>
+          <p class="card-desc">An automated SPY/QQQ options agent built on standard institutional quant models, with a hard risk engine that can veto any trade.</p>
+          <ul class="card-points">
+            <li>Black-Scholes-Merton pricing and Greeks, an implied-vol solver, and Parkinson and Garman-Klass realized vol</li>
+            <li>A regime gate (ADX/DMI, Hurst exponent, vol percentile) runs before a nine-factor entry score</li>
+            <li>Fractional-Kelly sizing, VaR and expected shortfall, plus a daily-loss circuit breaker</li>
+          </ul>
+          <div class="card-foot"><span class="meta">~77K lines · 141 test files</span></div>
+        </article>
+
+        <article class="card reveal" id="ablescan">
+          <div class="card-top"><span class="lang">TypeScript</span><span class="pill">MVP</span></div>
+          <h4>AbleScan</h4>
+          <p class="card-sub">WCAG 2.2 accessibility-compliance SaaS</p>
+          <p class="card-desc">Accessibility compliance for small businesses facing the European Accessibility Act and the ADA, without overlay widgets or false promises.</p>
+          <ul class="card-points">
+            <li>A Next.js 16 app plus a BullMQ/Redis worker fleet running Playwright, Chromium and axe-core crawls</li>
+            <li>Claude writes fixes from each page's real HTML, cached by issue fingerprint so a fix is never billed twice</li>
+            <li>Stripe tiers, hosted accessibility statements and an append-only evidence log</li>
+          </ul>
+          <div class="card-foot"><span class="meta">Postgres · Drizzle · Docker</span></div>
+        </article>
+
+        <article class="card reveal" id="launchdit">
+          <div class="card-top"><span class="lang">TypeScript</span><span class="pill live">Live</span></div>
+          <h4>LaunchDit</h4>
+          <p class="card-sub">8-week founder sprint platform</p>
+          <p class="card-desc">Founders join a cohort and ship one artifact a week (problem proof, MVP scope, build, launch), reviewed by AI or an instructor.</p>
+          <ul class="card-points">
+            <li>React, TypeScript, Vite and Tailwind on Firebase Hosting</li>
+            <li>Four sign-in methods, Firestore security rules, TypeScript Cloud Functions</li>
+            <li>Stripe Checkout and Subscriptions built directly, plus Gemini rubric feedback</li>
+          </ul>
+          <div class="card-foot"><span class="meta">Firebase · Stripe · Gemini</span><a href="https://launchdit.com" target="_blank" rel="noopener">launchdit.com <span class="arrow">↗</span></a></div>
+        </article>
+
+        <article class="card reveal" id="sprawl">
+          <div class="card-top"><span class="lang">C++ · Unreal Engine 5</span><span class="pill build">Building</span></div>
+          <h4>The Connected Sprawl</h4>
+          <p class="card-sub">Open-world game</p>
+          <p class="card-desc">A GTA-style open world about a 20-year-old founder hustling between the boardroom and the rail yards, with 28 days of runway.</p>
+          <ul class="card-points">
+            <li>A procedural city with traffic, interiors, metro and vehicles</li>
+            <li>Headless runtime audits for collision, physics and traffic that exit 0/1 and write CSVs</li>
+            <li>A Mac CI runner builds the game and runs the audit suite on every source push</li>
+          </ul>
+          <div class="card-foot"><span class="meta">~250K lines · 294 commits since May 2026</span></div>
+        </article>
+
+        <article class="card reveal" id="browser">
+          <div class="card-top"><span class="lang">Rust</span><span class="pill">Prototype</span></div>
+          <h4>OffEarth Browser</h4>
+          <p class="card-sub">Privacy-first macOS browser</p>
+          <p class="card-desc">Built on one rule: browsing never leaves the machine. No telemetry, no account, no sync, no cloud AI.</p>
+          <ul class="card-points">
+            <li>Tracker rules compiled into the binary and enforced in WebKit's network process</li>
+            <li>Per-tab ephemeral storage, tracking-parameter stripping and seeded fingerprint noise</li>
+            <li>A local LLM assistant that can only reach loopback, because its HTTP client ships with no TLS stack</li>
+          </ul>
+          <div class="card-foot"><span class="meta">tao · wry · WKWebView · Ollama</span></div>
+        </article>
+
+        <article class="card reveal" id="cairn">
+          <div class="card-top"><span class="lang">Shell</span><span class="pill">Open source</span></div>
+          <h4>cAIrn</h4>
+          <p class="card-sub">Coordination protocol for multi-agent repos</p>
+          <p class="card-desc">When several AI agents write to one repo, the usual failure is stranded work rather than bad code. cAIrn enforces one rule: every commit that touches code also updates a shared ledger.</p>
+          <ul class="card-points">
+            <li><span class="mono">cairn init</span> installs it into any repo with one command</li>
+            <li>A pre-commit hook and a CI gate validate the ledger's structure</li>
+            <li>State lives on the branch, so it merges and survives handoffs between models or people</li>
+          </ul>
+          <div class="card-foot"><span class="meta">Public repo</span><a href="https://github.com/mcclements02/cairn" target="_blank" rel="noopener">View on GitHub <span class="arrow">↗</span></a></div>
+        </article>
+
+        <article class="card reveal" id="quorum">
+          <div class="card-top"><span class="lang">JavaScript</span><span class="pill">Tool</span></div>
+          <h4>Patch Quorum</h4>
+          <p class="card-sub">One model writes. The quorum reviews.</p>
+          <p class="card-desc">A local launcher for the official coding CLIs (Codex, Claude Code, Gemini, Copilot). One model writes in an isolated lane, then read-only reviewers check the finished patch.</p>
+          <ul class="card-points">
+            <li>The writer works in its own git worktree, and reviewers can't modify it</li>
+            <li>It never touches credentials and strips API-key overrides so a subscription login isn't swapped for metered access</li>
+            <li>Zero npm dependencies, with a native WebKit app shell</li>
+          </ul>
+          <div class="card-foot"><span class="meta">Node · macOS &amp; Linux</span></div>
+        </article>
+
+        <article class="card reveal" id="buckwick">
+          <div class="card-top"><span class="lang">Three.js</span><span class="pill">Game</span></div>
+          <h4>Buckwick</h4>
+          <p class="card-sub">Web-swinging open-world game</p>
+          <p class="card-desc">A small open-world swinging game with a Spider-Verse look. The city, character, music and sound effects are all generated in code.</p>
+          <ul class="card-points">
+            <li>Zero assets and zero build step: any static file server runs it</li>
+            <li>A procedural city and character, plus generated music and SFX, all in pure Three.js</li>
+          </ul>
+          <div class="card-foot"><span class="meta">JavaScript · WebGL</span></div>
+        </article>
+
+        <article class="card reveal" id="garments">
+          <div class="card-top"><span class="lang">Python · Blender</span><span class="pill">R&amp;D</span></div>
+          <h4>Parametric garment engine</h4>
+          <p class="card-sub">One schema, one engine, every garment</p>
+          <p class="card-desc">A garment is data (body landmarks, ease by zone, fabric thickness, edge treatments), not a per-type builder. Adding a shirt or a shoe means writing a spec, not new code.</p>
+          <ul class="card-points">
+            <li>Procedural measured-loft base bodies built in Blender for the Unreal MetaHuman pipeline</li>
+            <li>Outfits swap as meshes in slots, without rebuilding the character</li>
+          </ul>
+          <div class="card-foot"><span class="meta">Blender · MetaHuman</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APPROACH ================= -->
+  <section class="block" id="approach">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Approach</p>
+          <h2>How I build with AI, <span class="serif-em">and how I don't.</span></h2>
+        </div>
+        <p>The same principles run through every project above. They also make AI systems something an enterprise customer can trust.</p>
+      </div>
+      <div class="principles">
+        <div class="principle reveal">
+          <span class="n">01</span>
+          <h3>Ground the model in measurement.</h3>
+          <p>LLMs supply judgment and language, and deterministic signals supply the numbers. Sango clamps model scores to on-device geometry. AbleScan writes fixes from the page's actual HTML and caches them by issue fingerprint.</p>
+        </div>
+        <div class="principle reveal">
+          <span class="n">02</span>
+          <h3>Ship dark, promote on evidence.</h3>
+          <p>Features land behind remote flags, and shadow evaluators measure them against production before promotion. The trading agent can't touch a funded account until its own paper record clears the bar.</p>
+        </div>
+        <div class="principle reveal">
+          <span class="n">03</span>
+          <h3>Write down what's true.</h3>
+          <p>Status maps tag every component live, dark or dormant. READMEs include honest-status sections, threat models and caveats, so what's missing is listed rather than hidden.</p>
+        </div>
+        <div class="principle reveal">
+          <span class="n">04</span>
+          <h3>Treat agents like a team.</h3>
+          <p>I build with several AI coding agents in parallel (Claude Code, Codex, Gemini). I also wrote the tooling that keeps their work from colliding: a shared-ledger protocol and a quorum where one writes and the others review.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Experience</p>
+          <h2>Enterprise depth. <span class="serif-em">Builder's hands.</span></h2>
+        </div>
+        <p>Fourteen years in the room with carriers, vendors and engineering teams: owning roadmaps, technical go-to-market and national-scale rollouts. That's the part of forward-deployed work a side project can't teach.</p>
+      </div>
+
+      <div class="exp">
+        <ol class="timeline">
+          <li class="reveal">
+            <div class="t-when">2022 — Present</div>
+            <div class="t-what featured">
+              <h3>Founder &amp; Principal Engineer <span>· Sango Labs</span></h3>
+              <p>An independent software studio. I design, build and operate a portfolio of production applications, covering product design, code, CI, payments, security rules and App Store and cloud deployment.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="t-when">2017 — Present</div>
+            <div class="t-what">
+              <h3>Principal Solution Architect <span>· AT&amp;T</span></h3>
+              <ul>
+                <li>Technical lead for Azure DevOps, API integration, ELK Stack and AI/ML solution delivery across national-scale programs</li>
+                <li>Led CI/CD that automates multi-site national deployments through DevOps pipelines</li>
+                <li>Define technical go-to-market strategy with subject-matter experts, owning roadmaps, timelines and multiple engineering teams</li>
+                <li>Delivery manager for knowledge transfers, production releases and proofs of concept, and technically challenge vendor solutions</li>
+              </ul>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="t-when">2015 — 2017</div>
+            <div class="t-what">
+              <h3>Principal System Architect <span>· AT&amp;T</span></h3>
+              <ul>
+                <li>Key contributor to the development and global launch of connected-car infotainment services</li>
+                <li>Led early 5G infrastructure buildout across international regions with partner carriers</li>
+              </ul>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="t-when">2015</div>
+            <div class="t-what">
+              <h3>Senior System Engineer <span>· B-Yond</span></h3>
+              <p>Traffic simulations and customer-cloud proofs of concept. Automated deployments with Puppet, Ansible, Vagrant and Python.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="t-when">2012 — 2015</div>
+            <div class="t-what">
+              <h3>Senior System Engineer / Pre-Sales <span>· Oracle</span></h3>
+              <p>Designed and deployed data centers, VMware and OpenStack clouds, and Linux fleets for Oracle's DSR/PCRF telecom products. Technical liaison between sales and engineering.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="t-when">2011 — 2012</div>
+            <div class="t-what">
+              <h3>Storage Test Engineer <span>· IBM</span></h3>
+              <p>Configured and tested big-data storage systems, storage cards and switching in virtualized environments.</p>
+            </div>
+          </li>
+        </ol>
+
+        <aside class="skills reveal" aria-label="Skills">
+          <h3>Toolkit</h3>
+          <div class="skill-group">
+            <h4>Languages</h4>
+            <ul class="chips"><li>Swift</li><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>Dart</li><li>C++</li><li>SQL</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>AI &amp; LLMs</h4>
+            <ul class="chips"><li>Claude API</li><li>Gemini</li><li>llama.cpp · GGUF</li><li>Apple Foundation Models</li><li>Apple Vision · Core ML</li><li>Shadow evals</li><li>Multi-agent coding</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Mobile &amp; web</h4>
+            <ul class="chips"><li>SwiftUI</li><li>StoreKit 2</li><li>Flutter</li><li>React</li><li>Next.js</li><li>Node · Express</li><li>Tailwind</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Cloud &amp; DevOps</h4>
+            <ul class="chips"><li>Firebase · GCP</li><li>Cloud Run</li><li>Azure DevOps</li><li>CI/CD</li><li>Docker</li><li>Kubernetes</li><li>VMware</li><li>OpenStack</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Data, payments &amp; observability</h4>
+            <ul class="chips"><li>Postgres · Drizzle</li><li>Firestore</li><li>Redis · BullMQ</li><li>MongoDB</li><li>Cassandra</li><li>Stripe Connect</li><li>ELK</li><li>Grafana</li><li>Prometheus</li></ul>
+          </div>
+          <p class="edu"><b>Education:</b> Wake Technical College, Networking Technology</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's build something <span class="serif-em">real.</span></h2>
+        <p class="lede">I do my best work where a customer's problem meets a system that has to ship: forward-deployed engineering, AI solutions architecture and senior product engineering.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:matthew.clements02@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            matthew.clements02@gmail.com
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/matthew-c-clements" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a>
+          <a class="btn" href="https://github.com/mcclements02" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+        </div>
+        <p class="fine">Most of this code lives in private repositories because several are commercial products. I'm happy to walk through any of it on a call, or grant read access for a technical review.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Matthew Clements · hand-built HTML &amp; CSS, no trackers</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+    btn.addEventListener('click', function () {
+      var current = root.getAttribute('data-theme');
+      if (!current) current = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+
+    var nav = document.getElementById('nav');
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
