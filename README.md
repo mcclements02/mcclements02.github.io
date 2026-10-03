@@ -14,6 +14,8 @@ A static portfolio with no framework, build step, or trackers. The design uses s
 - `projects/scks/index.html`: compatibility redirect to the renamed Socks. | Sockster page.
 - `assets/site.css`, `assets/site.js`, and `assets/cases.css`: shared appearance, interaction, and product-overview layout.
 - `assets/cairn-logo.svg`: original scalable cAIrn mark built from four stacked stones.
+- `assets/social-preview.html`: editable source for the 1200 × 630 social-preview artwork.
+- `assets/og-portfolio-2026.jpg`: the published Open Graph and Twitter preview image. `assets/og.png` is its compatibility copy for older image links.
 
 Sango and Socks. | Sockster visuals use the existing product screenshots. offEarth uses its existing app brand mark. cAIrn uses an original blue-and-violet vector identity. Product screenshots link to their full-size originals.
 

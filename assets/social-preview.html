@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1200, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Portfolio social preview artwork</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light; --gradient: linear-gradient(105deg,#007ac6 5%,#4d66df 38%,#8d4ecb 68%,#bd427f 95%); }
+    * { box-sizing: border-box; }
+    body { margin: 0; width: 1200px; height: 630px; overflow: hidden; color: #1d1d1f; background: #f5f5f7; font-family: -apple-system,BlinkMacSystemFont,'Geist',sans-serif; -webkit-font-smoothing: antialiased; }
+    img { display: block; }
+    .header { position: absolute; top: 38px; left: 56px; right: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .identity { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 600; letter-spacing: -.025em; }
+    .monogram { display: grid; place-items: center; width: 38px; height: 38px; color: white; background: var(--gradient); border-radius: 12px; font-size: 13px; letter-spacing: -.06em; }
+    .role { font-size: 13px; color: #686972; }
+    h1 { position: absolute; top: 99px; left: 0; width: 100%; margin: 0; text-align: center; font-size: 60px; line-height: 1.07; font-weight: 700; letter-spacing: -.05em; }
+    h1 span { display: block; width: fit-content; margin-inline: auto; font-size: 73px; color: #6856e5; background: var(--gradient); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .intro { position: absolute; top: 260px; left: 0; width: 100%; margin: 0; text-align: center; color: #53545b; font-size: 19px; letter-spacing: -.02em; }
+    .stage { position: absolute; top: 313px; left: 65px; width: 1070px; height: 253px; isolation: isolate; }
+    .glow { position: absolute; inset: 10px -20px -15px; z-index: -1; background: radial-gradient(ellipse at 25% 80%,#79d7f44a,transparent 55%),radial-gradient(ellipse at 65% 60%,#a17cf64a,transparent 58%),radial-gradient(ellipse at 85% 85%,#ee93c932,transparent 45%); filter: blur(26px); }
+    .cairn { position: absolute; left: 45px; top: 22px; width: 208px; padding: 17px 18px 15px; border-radius: 20px; background: #fff; box-shadow: 0 18px 35px -12px #23345135; transform: rotate(-6deg); }
+    .cairn-title { display: flex; gap: 9px; align-items: center; font-size: 18px; font-weight: 600; }
+    .cairn-title img { width: 29px; height: 29px; padding: 3px; background: #e9edff; border-radius: 8px; }
+    .cairn>img { width: 92px; height: 92px; margin: 13px auto 8px; }
+    .cairn p { font-size: 12px; line-height: 1.4; text-align: center; margin: 0; color: #53545b; }
+    .cairn small { display: block; margin-top: 13px; color: #686972; font-size: 8px; }
+    .sango { position: absolute; left: 289px; top: 0; width: 280px; height: 253px; }
+    .sango img { position: absolute; width: 122px; height: 239px; object-fit: cover; object-position: top; border-radius: 15px; box-shadow: 0 18px 30px -9px #0e233f6a; }
+    .sango img:first-child { left: 12px; top: 12px; transform: rotate(-7deg); }
+    .sango img:last-child { left: 145px; top: 0; transform: rotate(6deg); }
+    .socks { position: absolute; left: 609px; top: 2px; width: 127px; height: 253px; object-fit: cover; object-position: top; border-radius: 15px; box-shadow: 0 18px 30px -9px #31518355; transform: rotate(-4deg); }
+    .offearth { position: absolute; right: 35px; top: 22px; width: 219px; padding: 17px 18px 15px; border-radius: 21px; background: radial-gradient(ellipse at 50% 50%,#332449,#15151e 70%); color: white; box-shadow: 0 18px 35px -12px #44276660; transform: rotate(6deg); }
+    .offearth small { color: #c7bdd9; font-size: 9px; }
+    .offearth img { width: 155px; height: 139px; object-fit: contain; margin: -2px auto -8px; }
+    .offearth strong { font-size: 23px; letter-spacing: -.055em; font-weight: 600; }
+    .footer { position: absolute; left: 56px; right: 56px; bottom: 27px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #53545b; }
+    .products { display: flex; align-items: center; gap: 14px; }
+    .products span+span::before { content: '·'; margin-right: 14px; color: #93949c; }
+    .domain { color: #686972; }
+  </style>
+</head>
+<body>
+  <header class="header"><div class="identity"><span class="monogram">mc</span>Matthew Clements</div><span class="role">Engineer · Architect · Builder</span></header>
+  <h1>Big ideas.<span>Built for real life.</span></h1>
+  <p class="intro">Thoughtful software. Four products, built to be useful.</p>
+  <div class="stage" aria-label="Four featured products">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="cairn"><div class="cairn-title"><img src="cairn-logo.svg" alt="">cAIrn</div><img src="cairn-logo.svg" alt="cAIrn stacked-stone logo"><p>One team.<br>Shared context.</p><small>Build on what came before.</small></div>
+    <div class="sango"><img src="sango-report.webp" alt="Sango Sports Lab performance insights"><img src="sango-runway.webp" alt="Sango Sports Lab development report"></div>
+    <img class="socks" src="scks-customer.webp" alt="Socks. laundry customer app">
+    <div class="offearth"><small>Intelligence. All yours.</small><img src="offearth-logo.png" alt="offEarth globe and purple orbit"><strong>offEarth</strong></div>
+  </div>
+  <footer class="footer"><div class="products"><span>Sango Sports Lab</span><span>Socks. | Sockster</span><span>offEarth</span><span>cAIrn</span></div><span class="domain">mcclements02.github.io</span></footer>
+</body>
+</html>
